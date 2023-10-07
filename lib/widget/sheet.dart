@@ -74,6 +74,10 @@ class TimePickerSheet extends TimePicker {
 
   final Color saveButtonColor;
 
+  final Color backgroundColor;
+
+  final TextStyle saveButtonStyle;
+
   late final _now = DateTime.now();
 
   /// if initialDateTime is null, then default time will be used.
@@ -125,6 +129,12 @@ class TimePickerSheet extends TimePicker {
       color: Colors.redAccent,
       fontSize: 16,
     ),
+    this.backgroundColor = Colors.white,
+    this.saveButtonStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 16,
+    ),
   })  : assert(minHour >= 0 && minHour <= 24),
         assert(maxHour >= 0 && maxHour <= 24),
         assert(minMinute >= 0 && maxMinute <= 60),
@@ -148,6 +158,8 @@ class TimePickerSheet extends TimePicker {
       wheelNumberSelectedStyle: wheelNumberSelectedStyle,
       saveButtonText: saveButtonText,
       saveButtonColor: saveButtonColor,
+      backgroundColor: backgroundColor,
+      saveButtonStyle: saveButtonStyle,
       twoDigit: twoDigit,
       child: SizedBox(
         height: halfOfScreen,

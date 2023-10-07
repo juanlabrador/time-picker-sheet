@@ -33,6 +33,10 @@ class TimePickerProvider extends InheritedWidget {
 
   final bool twoDigit;
 
+  final Color backgroundColor;
+
+  final TextStyle saveButtonStyle;
+
   const TimePickerProvider({
     Key? key,
     required this.sheetCloseIcon,
@@ -48,6 +52,8 @@ class TimePickerProvider extends InheritedWidget {
     required this.saveButtonText,
     required this.saveButtonColor,
     required this.twoDigit,
+    required this.backgroundColor,
+    required this.saveButtonStyle,
     required Widget child,
   }) : super(key: key, child: child);
 

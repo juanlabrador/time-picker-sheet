@@ -145,87 +145,93 @@ class _TimePickerBodyState extends State<TimePickerBody> {
   Widget build(BuildContext context) {
     final provider = TimePickerProvider.of(context);
 
-    return Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: SizedBox(
-                child: Text(
-                  provider.hourTitle,
-                  style: provider.hourTitleStyle,
-                  textAlign: TextAlign.center,
+    return Container(
+      color: provider.backgroundColor,
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: SizedBox(
+                  child: Text(
+                    provider.hourTitle,
+                    style: provider.hourTitleStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                  height: 20,
                 ),
-                height: 20,
               ),
-            ),
-            Expanded(
-              child: SizedBox(
-                child: Text(
-                  provider.minuteTitle,
-                  style: provider.minuteTitleStyle,
-                  textAlign: TextAlign.center,
+              Expanded(
+                child: SizedBox(
+                  child: Text(
+                    provider.minuteTitle,
+                    style: provider.minuteTitleStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                  height: 20,
                 ),
-                height: 20,
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 24),
-        Row(
-          children: [
-            Expanded(
-              child: SizedBox(
-                child: NumberWheel(
-                  numbers: _getHours(),
-                  itemHeight: widget.itemHeight,
-                  numberNotifier: hourNotifier,
-                  twoDigits: provider.twoDigit,
-                  controller: hourController,
-                ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          Row(
+            children: [
+              Expanded(
+                child: SizedBox(
+                  child: NumberWheel(
+                    numbers: _getHours(),
+                    itemHeight: widget.itemHeight,
+                    numberNotifier: hourNotifier,
+                    twoDigits: provider.twoDigit,
+                    controller: hourController,
+                  ),
 
-                /// show only 3 items in the list as an options.
-                /// the selected option should be on the middle of the list.
-                height: widget.itemHeight * 3,
-              ),
-            ),
-            Expanded(
-              child: SizedBox(
-                child: NumberWheel(
-                  numbers: _getMinutes(),
-                  itemHeight: widget.itemHeight,
-                  numberNotifier: minuteNotifier,
-                  twoDigits: provider.twoDigit,
-                  controller: minuteController,
+                  /// show only 3 items in the list as an options.
+                  /// the selected option should be on the middle of the list.
+                  height: widget.itemHeight * 3,
                 ),
+              ),
+              Expanded(
+                child: SizedBox(
+                  child: NumberWheel(
+                    numbers: _getMinutes(),
+                    itemHeight: widget.itemHeight,
+                    numberNotifier: minuteNotifier,
+                    twoDigits: provider.twoDigit,
+                    controller: minuteController,
+                  ),
 
-                /// show only 3 items in the list as an options.
-                /// the selected option should be on the middle of the list.
-                height: widget.itemHeight * 3,
-              ),
-            ),
-          ],
-        ),
-        const Expanded(child: SizedBox.shrink()),
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              child: Text(provider.saveButtonText),
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  /// show only 3 items in the list as an options.
+                  /// the selected option should be on the middle of the list.
+                  height: widget.itemHeight * 3,
                 ),
-                primary: provider.saveButtonColor,
-              ), // <-- Radius
-              onPressed: () => _onSaved(context),
+              ),
+            ],
+          ),
+          const Expanded(child: SizedBox.shrink()),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                child: Text(
+                  provider.saveButtonText,
+                  style: provider.saveButtonStyle,
+                ),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  primary: provider.saveButtonColor,
+                ), // <-- Radius
+                onPressed: () => _onSaved(context),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

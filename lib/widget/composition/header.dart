@@ -12,16 +12,21 @@ class SheetHeader extends StatelessWidget {
       color: provider.backgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Row(
+        child: Column(
           children: [
-            InkWell(
-                onTap: () => Navigator.of(context).pop(),
-                child: Icon(
-                  provider.sheetCloseIcon,
-                  color: provider.sheetCloseIconColor,
-                )),
-            const SizedBox(width: 16),
-            Text(provider.sheetTitle, style: provider.sheetTitleStyle),
+            Row(
+              children: [
+                InkWell(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Icon(
+                      provider.sheetCloseIcon,
+                      color: provider.sheetCloseIconColor,
+                    )),
+                const SizedBox(width: 16),
+                Text(provider.sheetTitle, style: provider.sheetTitleStyle),
+              ],
+            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

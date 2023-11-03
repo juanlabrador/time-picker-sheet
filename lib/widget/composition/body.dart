@@ -214,7 +214,7 @@ class _TimePickerBodyState extends State<TimePickerBody> {
           Padding(
             padding: const EdgeInsets.all(16),
             child: SizedBox(
-              width: double.infinity,
+              width: 200,
               child: ElevatedButton(
                 child: Text(
                   provider.saveButtonText,
@@ -224,6 +224,8 @@ class _TimePickerBodyState extends State<TimePickerBody> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                   primary: provider.saveButtonColor,
                 ), // <-- Radius
                 onPressed: () => _onSaved(context),

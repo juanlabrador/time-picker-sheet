@@ -18,10 +18,10 @@ class SheetHeader extends StatelessWidget {
               children: [
                 InkWell(
                     onTap: () => Navigator.of(context).pop(),
-                    child: Icon(
-                      provider.sheetCloseIcon,
-                      color: provider.sheetCloseIconColor,
-                    )),
+                    child: provider.customCloseIcon ?? Icon(
+                            provider.sheetCloseIcon,
+                            color: provider.sheetCloseIconColor,
+                          )),
                 const SizedBox(width: 16),
                 Text(provider.sheetTitle, style: provider.sheetTitleStyle),
               ],

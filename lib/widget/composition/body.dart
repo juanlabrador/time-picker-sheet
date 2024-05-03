@@ -216,19 +216,19 @@ class _TimePickerBodyState extends State<TimePickerBody> {
             child: SizedBox(
               width: 150,
               child: ElevatedButton(
-                child: Text(
-                  provider.saveButtonText,
-                  style: provider.saveButtonStyle,
-                ),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
                   padding:
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                  primary: provider.saveButtonColor,
+                  foregroundColor: provider.saveButtonColor,
                 ), // <-- Radius
                 onPressed: () => _onSaved(context),
+                child: Text(
+                  provider.saveButtonText,
+                  style: provider.saveButtonStyle,
+                ),
               ),
             ),
           ),
